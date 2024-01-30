@@ -127,21 +127,20 @@ Return Value:
 --*/
 {
     NTSTATUS status;
-    BYTE                  touchType;
-    BYTE                  touchId;
+    BYTE                 touchType;
+    int                  remain = 0;
+    int                  x = 0;
+    int                  y = 0;
+    int                  base = 0;
+    int                  i = 0;
+    unsigned char        touchId = 0;
 
     FTS521_CONTROLLER_CONTEXT* controller;
 
     PFOCAL_TECH_EVENT_DATA controllerData = NULL;
     controller = (FTS521_CONTROLLER_CONTEXT*)ControllerContext;
 
-    int remain = 0;
-    int x = 0;
-    int y = 0;
-    int base = 0;
-    int i = 0;
-
-    status = FtsWriteReadU8UX(SpbContext, FTS521_READ_EVENTS, &eventbuf[0], 3, 8);
+    status = FtsWriteReadU8UX(SpbContext, FTS521_READ_EVENTS, &eventbuf[0], 3, 2);
 
     if (!NT_SUCCESS(status))
     {
@@ -152,11 +151,6 @@ Return Value:
             status);
 
         goto exit;
-    }
-
-    if (remain > 0)
-    {
-        FtsWriteReadU8UX(SpbContext, FTS521_READ_EVENTS, &eventbuf[8], 3, 2);
     }
 
     for (i = 0; i < TOUCH_MAX_FINGER_NUM; i++) {
