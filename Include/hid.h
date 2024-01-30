@@ -177,7 +177,7 @@ TchReadReport(
 #define X_MASK 0x38, 0x04
 #define Y_MASK 0x24, 0x09
 
-#define FINGERTIPS_FTS521_FINGER_CONTACT_1 \
+#define FINGERTIPS_FTS521_FINGER_CONTACT \
 	BEGIN_COLLECTION, 0x02, /* Collection (Logical) */ \
 		USAGE, 0x42, /* Usage (Tip Switch) */ \
 		LOGICAL_MINIMUM, 0x00, /* Logical Minimum (0) */ \
@@ -191,45 +191,17 @@ TchReadReport(
 		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
 		REPORT_COUNT, 0x05, /* Report Count (5) */ \
 		INPUT, 0x03, /* Input (Const,Var,Abs,No Wrap,Linear,Preferred State,No Null Position) */ \
-		USAGE, 0x51, /* Usage (Contract Identifier) */ \
 		REPORT_SIZE, 0x08, /* Report Size (8) */ \
 		REPORT_COUNT, 0x01, /* Report Count (1) */ \
-		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		USAGE_PAGE, 0x01, /* Usage Page (Generic Desktop Ctrls) */ \
-		USAGE, 0x30, /* Usage (X) */ \
-		LOGICAL_MAXIMUM_2, X_MASK, /* Logical Maximum (1440) */ \
-		REPORT_SIZE, 0x10, /* Report Size (16) */ \
-		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		USAGE, 0x31, /* Usage (Y) */ \
-		LOGICAL_MAXIMUM_2, Y_MASK, /* Logical Maximum (2560) */ \
-		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		PHYSICAL_MAXIMUM, 0x00, /* Physical Maximum: 0 */ \
-	END_COLLECTION /* End Collection */
-
-#define FINGERTIPS_FTS521_FINGER_CONTACT_2 \
-	BEGIN_COLLECTION, 0x02, /* Collection (Logical) */ \
-		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
-		USAGE, 0x42, /* Usage (Tip Switch) */ \
-		LOGICAL_MAXIMUM, 0x01, /* Logical Maximum (1) */ \
-		REPORT_SIZE, 0x01, /* Report Size (1) */ \
-		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		USAGE, 0x32, /* Usage (In Range) */ \
-		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		USAGE, 0x47, /* Usage (Confidence) */ \
-		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		REPORT_COUNT, 0x05, /* Report Count (5) */ \
-		INPUT, 0x03, /* Input (Const,Var,Abs,No Wrap,Linear,Preferred State,No Null Position) */ \
 		USAGE, 0x51, /* Usage (Contract Identifier) */ \
-		REPORT_SIZE, 0x08, /* Report Size (8) */ \
-		REPORT_COUNT, 0x01, /* Report Count (1) */ \
 		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
 		USAGE_PAGE, 0x01, /* Usage Page (Generic Desktop Ctrls) */ \
-		USAGE, 0x30, /* Usage (X) */ \
 		LOGICAL_MAXIMUM_2, X_MASK, /* Logical Maximum (1440) */ \
 		REPORT_SIZE, 0x10, /* Report Size (16) */ \
+		USAGE, 0x30, /* Usage (X) */ \
 		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
-		USAGE, 0x31, /* Usage (Y) */ \
 		LOGICAL_MAXIMUM_2, Y_MASK, /* Logical Maximum (2560) */ \
+		USAGE, 0x31, /* Usage (Y) */ \
 		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
 	END_COLLECTION /* End Collection */
 
@@ -239,16 +211,41 @@ TchReadReport(
 	BEGIN_COLLECTION, 0x01, /* Collection (Application) */ \
 		REPORT_ID, REPORTID_FINGER, /* Report ID (1) */ \
 		USAGE, 0x22, /* Usage (Finger) */ \
-		FINGERTIPS_FTS521_FINGER_CONTACT_1, /* Finger Contact (1) */ \
-		USAGE, 0x00, /* Usage (Undefined) */ \
-		FINGERTIPS_FTS521_FINGER_CONTACT_2, /* Finger Contact (2) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (1) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (2) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (3) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (4) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (5) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (6) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (7) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (8) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (9) */ \
+		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
+		USAGE, 0x22, /* Usage (Finger) */ \
+		FINGERTIPS_FTS521_FINGER_CONTACT, /* Finger Contact (10) */ \
 		USAGE_PAGE, 0x0D, /* Usage Page (Digitizer) */ \
 		USAGE, 0x54, /* Usage (Contact Count) */ \
 		REPORT_SIZE, 0x08, /* Report Size (8) */ \
 		INPUT, 0x02, /* Input: (Data, Var, Abs) */ \
 		REPORT_ID, REPORTID_DEVICE_CAPS, /* Report ID (8) */ \
 		USAGE, 0x55, /* Usage (Maximum Contacts) */ \
-		LOGICAL_MAXIMUM, 0x02, /* Logical Maximum (2) */ \
+		LOGICAL_MAXIMUM, 0x0a, /* Logical Maximum (10) */ \
 		FEATURE, 0x02, /* Feature: (Data, Var, Abs) */ \
 		USAGE_PAGE_1, 0x00, 0xff, \
 		REPORT_ID, REPORTID_PTPHQA, \
