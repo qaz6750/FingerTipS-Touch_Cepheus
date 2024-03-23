@@ -451,10 +451,12 @@ Return Value:
 			//
 			// Perform per-platform x/y adjustments to controller coordinates
 			//
+			/*
 			TchTranslateToDisplayCoordinates(
 				&SctatchX,
 				&ScratchY,
 				&ReportContext->Props);
+			*/
 
 			if (info.status == OBJECT_STATE_FINGER_PRESENT_WITH_ACCURATE_POS)
 			{
